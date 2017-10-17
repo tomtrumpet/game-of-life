@@ -1,6 +1,6 @@
-import logUpdate from 'log-update'
 import boardFactory from './board-factory'
 import boardTick from './board-tick'
+import logUpdate from 'log-update'
 
 exports.play = async (rows, columns, seeds, iterations) => {
   const board = boardFactory.createBoard(rows, columns, seeds)

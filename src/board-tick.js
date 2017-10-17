@@ -1,7 +1,8 @@
 import cells from './cells'
+import grid from './helpers/grid'
 
 exports.tick = (board) => {
-  let changes = createChanges(board.length, board[0].length)
+  let changes = grid.createGrid(board.length, board[0].length)
 
   for (let r = 0; r < board.length; r++) {
     for (let c = 0; c < board[0].length; c++) {
@@ -12,20 +13,6 @@ exports.tick = (board) => {
   }
 
   return makeChanges(board, changes)
-}
-
-const createChanges = (rows, columns) => {
-  let changes = [rows]
-
-  for (let r = 0; r < rows; r++) {
-    changes[r] = []
-
-    for (let c = 0; c < columns; c++) {
-      changes[r][c] = null
-    }
-  }
-
-  return changes
 }
 
 const makeChanges = (board, changes) => {

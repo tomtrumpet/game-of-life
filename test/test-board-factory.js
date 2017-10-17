@@ -25,7 +25,7 @@ describe('creating board', () => {
         if ((seeds[0][0] === r && seeds[0][1] === c) || (seeds[1][0] === r && seeds[1][1] === c)) {
           expect(sut[r][c]).to.be.equals(true)
         } else {
-          expect(sut[r][c]).to.be.equals(false)
+          expect(sut[r][c]).to.be.equals(null)
         }
       }
     }

@@ -1,13 +1,15 @@
-exports.createGrid = (rows, columns) => {
-  let grid = [rows]
+const createGrid = (rows, columns) => {
+  const grid = [rows];
 
-  for (let r = 0; r < rows; r++) {
-    grid[r] = []
+  for (let r = 0; r < rows; r += 1) {
+    grid[r] = [];
 
-    for (let c = 0; c < columns; c++) {
-      grid[r][c] = null
+    for (let c = 0; c < columns; c += 1) {
+      grid[r][c] = null;
     }
   }
 
-  return grid
-}
+  return grid;
+};
+
+export default { createGrid };

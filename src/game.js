@@ -1,30 +1,24 @@
-import boardFactory from './board-factory'
-import boardTick from './board-tick'
-import logUpdate from 'log-update'
+import logUpdate from 'log-update';
+import boardFactory from './board-factory';
+import boardTick from './board-tick';
 
-exports.play = async (rows, columns, seeds, iterations) => {
-  const board = boardFactory.createBoard(rows, columns, seeds)
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  for (let i = 0; i < iterations; i++) {
-    let tick = boardTick.tick(board)
+const drawTick = tick => tick
+  .map(row => row.map(column => ((column) ? 'x' : '.')))
+  .join('\n');
 
-    let tickDrawing = tick
-      .map(row => {
-        let rowString = ''
+const play = async (rows, columns, seeds, iterations) => {
+  const board = boardFactory.createBoard(rows, columns, seeds);
 
-        row.map(column => {
-          rowString += (column) ? 'x' : '.'
-        })
+  for (let i = 0; i < iterations; i += 1) {
+    const tick = boardTick.tick(board);
 
-        return rowString
-      })
-      .join('\n')
+    logUpdate(drawTick(tick));
 
-    logUpdate(tickDrawing)
-    await sleep(100)
+    /* eslint-disable no-await-in-loop */
+    await sleep(100);
   }
-}
+};
 
-function sleep (ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+export default { play };

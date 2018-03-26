@@ -1,4 +1,4 @@
-import game from './game'
+import game from './game';
 
 game.play(
   20,
@@ -11,6 +11,7 @@ game.play(
     [2, 2],
     [3, 3],
     [3, 4],
-    [3, 5]
+    [3, 5],
   ],
-  100)
+  100,
+);

@@ -4,8 +4,10 @@ import boardTick from './board-tick';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+const drawCrossOrDot = column => (column ? 'x' : '.');
+
 const drawTick = tick => tick
-  .map(row => row.map(column => ((column) ? 'x' : '.')))
+  .map(row => row.map(drawCrossOrDot))
   .join('\n');
 
 const play = async (rows, columns, seeds, iterations) => {

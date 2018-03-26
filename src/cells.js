@@ -1,10 +1,4 @@
-const isAlive = (board, r, c) => {
-  if (board[r] !== undefined && board[r][c] !== undefined && board[r][c]) {
-    return true;
-  }
-
-  return false;
-};
+const isAlive = (board, r, c) => (board[r] && board[r][c]);
 
 const countLivingNeighbours = (board, r, c) => {
   let livingNeighbours = 0;

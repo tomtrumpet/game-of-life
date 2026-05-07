@@ -3,5 +3,3 @@ extends:
   parameters:
     this: $(azureSubscription)
     that: $(acr.azureContainerRegistryName)
-    envToDeploy: ${{ parameters.envToDeploy }}
-    

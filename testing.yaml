@@ -1,3 +1,11 @@
+parameters:
+- name: envToDeploy
+  displayName: 'Target'
+  default: development
+  type: string
+  values:
+    - development
+    - tst
 extends:
   template: abc-something-deployment-pipeline.yaml@CommonTemplates
   parameters:

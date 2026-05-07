@@ -1,0 +1,7 @@
+extends:
+  template: abc-something-deployment-pipeline.yaml@CommonTemplates
+  parameters:
+    this: $(azureSubscription)
+    that: $(acr.azureContainerRegistryName)
+    envToDeploy: ${{ parameters.envToDeploy }}
+    
